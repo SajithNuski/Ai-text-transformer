@@ -39,6 +39,25 @@ export default function Home() {
     await navigator.clipboard.writeText(outputText);
   }
 
+  async function transform() {
+    setLoading(true);
+    setOutputText("");
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      if(mode === "summarize") {
+        setOutputText("This is a sample text that you can use to test the AI Text Transformer. You can summarize, rewrite, or translate this text using the options provided.");
+      } else if(mode === "rewrite") {
+        setOutputText(`This is a sample text that you can use to test the AI Text Transformer. You can summarize, rewrite, or translate this text using the options provided. Feel free to experiment with different tones and target languages to see how the output changes. Enjoy using the AI Text Transformer! (Tone: ${tone})`);
+      } else {
+        setOutputText(`இந்த ஒரு மாதிரி உரை ஆகும், நீங்கள் AI உரை மாற்றியை சோதிக்க பயன்படுத்தலாம். நீங்கள் இந்த உரையை சுருக்க, மறுபடியும் எழுத, அல்லது மொழிபெயர்க்க முடியும். வழங்கப்பட்ட விருப்பங்களைப் பயன்படுத்தி இந்த உரையை சுருக்க, மறுபடியும் எழுத, அல்லது மொழிபெயர்க்க முடியும். வெளியீடு எப்படி மாறுகிறது என்பதைப் பார்க்க வெவ்வேறு தொனிகள் மற்றும் இலக்கு மொழிகளுடன் பரசோதிக்கவும். AI உரை மாற்றியைப் பயன்படுத்துவதில் மகிழ்ச்சி! (இலக்கு மொழி: ${targetLanguage})`);
+      }
+    } finally {
+      setLoading(false);
+    }
+
+
+  }
 
 
   return (
@@ -130,7 +149,9 @@ export default function Home() {
 
 
               {/* Transform button */}
-              <button className="w-full rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-300">
+              <button 
+              onClick={transform}
+              className="w-full rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-300">
                 Transform
               </button>
             </div>
@@ -139,9 +160,12 @@ export default function Home() {
             <div className="space-y-3">
               <label className="text-sm text-zinc-300">Output</label>
               <div className="h-64 overflow-auto whitespace-pre-wrap rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 text-sm text-zinc-100">
+                {
+                  loading ? "Transforming..." : outputText ? outputText : 
                 <span className="text-zinc-500">
                   Your transformed text will appear here.
                 </span>
+                }
               </div>
               <button 
               onClick={onCopy}
