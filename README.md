@@ -31,4 +31,4 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the live app.
+Open [https://ai-text-transformer-six.vercel.app/](https://ai-text-transformer-six.vercel.app/) with your browser to see the live app.
