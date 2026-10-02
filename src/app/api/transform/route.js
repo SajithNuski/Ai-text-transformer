@@ -5,9 +5,9 @@ function buildInstructions(mode, targetLanguage, tone) {
   if (mode === "summarize") {
     return `${base} please summarize the following text in a concise manner with maximum 5 bullet points.`;
   } else if (mode === "rewrite") {
-    return `${base} please rewrite the following text in a ${tone ? tone : "simple"} tone. you should not preserve the meaning`;
+    return `${base} please rewrite the following text in a ${tone ? tone : "simple"} tone. you should preserve the meaning`;
   } else {
-    return `${base} please translate the following text to ${targetLanguage ? targetLanguage : "tamil"}. you should not change the name or product mentioned in the text. you should not preserve the meaning`;
+    return `${base} please translate the following text to ${targetLanguage ? targetLanguage : "tamil"}. you should not change the name or product mentioned in the text. you should preserve the meaning`;
   }
 }
 
@@ -35,7 +35,7 @@ export async function POST(req) {
           Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
+          model: process.env.GROQ_MODEL || "openai/gpt-oss-20b",
           messages: [
             {
               role: "system",

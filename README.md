@@ -13,13 +13,13 @@ A premium, modern web application built with Next.js and Tailwind CSS that lever
 ## Credits & Design
 
 - **Developed By:** [@sajithNuski](https://github.com/SajithNuski)
-- **Design System:** Designed and styled using the **AI UI Frontend** design process to create a high-fidelity, premium dark mode layout inspired by modern developer utilities.
+- **Design System:** Designed and styled using the **SKILL.md** design process to create a high-fidelity, premium dark mode layout inspired by modern developer utilities.
 
 ## Tech Stack
 
 - **Framework:** Next.js (React 19)
 - **Styling:** Tailwind CSS v4
-- **API Integration:** Groq API (Llama 3.1 8B Model)
+- **API Integration:** Groq API (`openai/gpt-oss-20b`)
 - **Fonts:** Inter & Geist Sans
 
 ## Getting Started
@@ -31,4 +31,4 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the live app.
+Open [https://ai-text-transformer-six.vercel.app](https://ai-text-transformer-six.vercel.app) with your browser to see the live app.
