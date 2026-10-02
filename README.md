@@ -1,3 +1,4 @@
+
 # AI Text Transformer
 
 A premium, modern web application built with Next.js and Tailwind CSS that leverages AI to summarize, rewrite, and translate text instantly.
@@ -30,5 +31,4 @@ First, install dependencies and run the development server:
 npm install
 npm run dev
 ```
-
-Open [https://ai-text-transformer-six.vercel.app](https://ai-text-transformer-six.vercel.app) with your browser to see the live app.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the local app, or visit the live app at [https://ai-text-transformer-six.vercel.app/](https://ai-text-transformer-six.vercel.app/).
